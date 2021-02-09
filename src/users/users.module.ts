@@ -1,12 +1,21 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { UsersService } from './service/users.service';
-import { UsersResolver } from './users.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 import { phoneNumberExist, emailExist } from '../validators';
 import { AuthGqlRedisModule } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { UserEntity } from '../database/entities/user.entity';
 import { SharedModule } from '../shared/shared.module';
+import {
+  changePhoneNumberResolver,
+  currentUserResolver,
+  deleteUserResolver,
+  findAllResolver,
+  getUserResolver,
+  registerUserResolver,
+  sendChangePhoneEmailResolver,
+  updateUserResolver,
+} from './resolvers';
 
 @Module({
   imports: [
@@ -15,7 +24,19 @@ import { SharedModule } from '../shared/shared.module';
     AuthGqlRedisModule,
     SharedModule,
   ],
-  providers: [UsersResolver, UsersService, phoneNumberExist, emailExist],
+  providers: [
+    findAllResolver,
+    getUserResolver,
+    currentUserResolver,
+    registerUserResolver,
+    sendChangePhoneEmailResolver,
+    updateUserResolver,
+    changePhoneNumberResolver,
+    deleteUserResolver,
+    UsersService,
+    phoneNumberExist,
+    emailExist,
+  ],
   exports: [UsersService],
 })
 export class UsersModule {}
