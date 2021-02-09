@@ -1,7 +1,10 @@
+import { Injectable } from '@nestjs/common';
 import { Mailman, MailMessage } from '@squareboat/nest-mailman';
 import { mailInterface } from './mail.interface';
 
+@Injectable()
 export class MailService {
+  constructor() {}
   async sendMail(mail: mailInterface): Promise<void> {
     try {
       const buildMail = MailMessage.init()
