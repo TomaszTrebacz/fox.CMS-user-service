@@ -1,5 +1,5 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { UsersService } from '../../users/users.service';
+import { UsersService } from '../../users/service/users.service';
 import { RedisHandlerService } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { comparePassword, hashPassword, isExecuted } from '../../utils';
 import { ExtendedUserI, UserI } from '../../models';

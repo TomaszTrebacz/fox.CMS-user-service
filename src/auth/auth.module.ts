@@ -9,7 +9,7 @@ import {
   changePasswordResolver,
   changeRoleResolver,
   confirmUserResolver,
-  LoginResolver,
+  loginResolver,
   logoutResolver,
   refreshTokenResolver,
   resetPasswordResolver,
@@ -20,7 +20,7 @@ import {
 @Module({
   imports: [forwardRef(() => UsersModule), AuthGqlRedisModule, SharedModule],
   providers: [
-    LoginResolver,
+    loginResolver,
     refreshTokenResolver,
     changeRoleResolver,
     confirmUserResolver,

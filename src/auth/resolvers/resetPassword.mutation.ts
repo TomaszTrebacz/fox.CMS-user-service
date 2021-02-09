@@ -4,7 +4,7 @@ import {
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { SmsService } from '../../shared/sms/sms.service';
-import { UsersService } from '../../users/users.service';
+import { UsersService } from '../../users/service/users.service';
 import { generatePassword } from '../../utils';
 import { AuthService } from '../service/auth.service';
 import { ResetPasswordDto } from '../dto';

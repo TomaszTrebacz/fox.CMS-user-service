@@ -6,7 +6,7 @@ import {
   ValidationOptions,
   registerDecorator,
 } from 'class-validator';
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../users/service/users.service';
 
 @ValidatorConstraint({ name: 'emailExist', async: true })
 @Injectable()

@@ -9,7 +9,7 @@ import { AuthService } from '../service/auth.service';
 import { LoginDto } from '../dto';
 
 @Resolver('Login')
-export class LoginResolver {
+export class loginResolver {
   constructor(
     private readonly authService: AuthService,
     private readonly redisHandler: RedisHandlerService,

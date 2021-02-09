@@ -5,7 +5,7 @@ import {
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { RedisUserI } from '../../models';
 import { SmsService } from '../../shared/sms/sms.service';
-import { UsersService } from '../../users/users.service';
+import { UsersService } from '../../users/service/users.service';
 import { generateRandomCode } from '../../utils';
 
 @Resolver('sendCodePhoneResolver')

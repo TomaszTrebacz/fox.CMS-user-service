@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { hashPassword, isArrayFound, isExecuted, isFound } from '../utils';
-import { UserI } from '../models';
-import { UserEntity } from '../database/entities/user.entity';
+import { hashPassword, isArrayFound, isExecuted, isFound } from '../../utils';
+import { UserI } from '../../models';
+import { UserEntity } from '../../database/entities/user.entity';
 
 @Injectable()
 export class UsersService {

@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { UserEntity } from '../database/entities/user.entity';
+import { UserEntity } from '../../database/entities/user.entity';
 import { Connection, DeleteResult, Repository } from 'typeorm';
 import { UsersService } from './users.service';
 

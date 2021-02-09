@@ -6,7 +6,7 @@ import {
   Mutation,
 } from '@nestjs/graphql';
 import { CreateUserDto, UpdateUserDto } from './dto';
-import { UsersService } from './users.service';
+import { UsersService } from './service/users.service';
 import { UserInputError } from 'apollo-server-core';
 import {
   AuthGqlRedisService,
