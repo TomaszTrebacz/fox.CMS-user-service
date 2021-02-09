@@ -6,7 +6,7 @@ import {
 import { RedisUserI } from '../../models';
 import { MailService } from '../../shared/mail/mail.service';
 import { UsersService } from '../../users/users.service';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../service/auth.service';
 
 @Resolver('sendChangePassEmailResolver')
 export class sendChangePassEmailResolver {

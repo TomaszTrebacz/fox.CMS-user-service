@@ -3,7 +3,7 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../service/auth.service';
 import { ChangePassByTokenDto } from '../dto';
 
 @Resolver('changePassByTokenResolver')

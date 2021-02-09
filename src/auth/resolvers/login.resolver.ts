@@ -5,7 +5,7 @@ import {
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { LoginResponse } from '../../graphql';
 import { ExtendedUserI, RedisUserI } from '../../models';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../service/auth.service';
 import { LoginDto } from '../dto';
 
 @Resolver('Login')

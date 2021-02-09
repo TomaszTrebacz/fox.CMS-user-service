@@ -6,7 +6,7 @@ import {
 import { SmsService } from '../../shared/sms/sms.service';
 import { UsersService } from '../../users/users.service';
 import { generatePassword } from '../../utils';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../service/auth.service';
 import { ResetPasswordDto } from '../dto';
 
 @Resolver('resetPasswordResolver')

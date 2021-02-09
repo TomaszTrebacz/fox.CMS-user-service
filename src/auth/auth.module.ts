@@ -1,6 +1,5 @@
 import { forwardRef, Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { AuthResolver } from './auth.resolver';
+import { AuthService } from './service/auth.service';
 import { UsersModule } from '../users/users.module';
 import { AuthGqlRedisModule } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { SharedModule } from '../shared/shared.module';
@@ -21,7 +20,6 @@ import {
 @Module({
   imports: [forwardRef(() => UsersModule), AuthGqlRedisModule, SharedModule],
   providers: [
-    AuthResolver,
     LoginResolver,
     refreshTokenResolver,
     changeRoleResolver,
