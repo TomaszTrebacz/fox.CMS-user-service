@@ -1,2 +1,2 @@
-export * from './password.util';
-export * from './database.util';
+export * from './password/password.util';
+export * from './database/database.util';

@@ -1,5 +1,5 @@
 import { UpdateResult } from 'typeorm';
-import { UserI } from '../models';
+import { UserI } from '../../models';
 import { isArrayFound, isExecuted, isFound } from './database.util';
 
 describe('isExecuted', () => {

@@ -1,5 +1,5 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
-import { UserI } from '../models';
+import { UserI } from '../../models';
 
 /* 
     typeorm does not throw error
