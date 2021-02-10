@@ -3,11 +3,11 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { SmsService } from '../../shared/sms/sms.service';
-import { UsersService } from '../../users/service/users.service';
-import { generatePassword } from '../../utils';
-import { AuthService } from '../service/auth.service';
-import { ResetPasswordDto } from '../dto';
+import { SmsService } from '../../../shared/sms/sms.service';
+import { UsersService } from '../../../users/service/users.service';
+import { generatePassword } from '../../../utils';
+import { AuthService } from '../../service/auth.service';
+import { ResetPasswordDto } from '../../dto';
 
 @Resolver('resetPasswordResolver')
 export class resetPasswordResolver {

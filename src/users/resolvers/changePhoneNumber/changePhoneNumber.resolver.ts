@@ -3,8 +3,8 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { UserI } from '../../models';
-import { UsersService } from '../service/users.service';
+import { UserI } from '../../../models';
+import { UsersService } from '../../service/users.service';
 
 @Resolver('changePhoneNumberResolver')
 export class changePhoneNumberResolver {

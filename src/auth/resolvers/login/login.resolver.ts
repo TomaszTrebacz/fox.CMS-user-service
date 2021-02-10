@@ -3,10 +3,10 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { LoginResponse } from '../../graphql';
-import { ExtendedUserI, RedisUserI } from '../../models';
-import { AuthService } from '../service/auth.service';
-import { LoginDto } from '../dto';
+import { LoginResponse } from '../../../graphql';
+import { ExtendedUserI, RedisUserI } from '../../../models';
+import { AuthService } from '../../service/auth.service';
+import { LoginDto } from '../../dto';
 
 @Resolver('Login')
 export class loginResolver {

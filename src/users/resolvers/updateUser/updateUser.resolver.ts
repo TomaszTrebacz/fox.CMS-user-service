@@ -1,8 +1,8 @@
 import { Resolver, Mutation, Args } from '@nestjs/graphql';
 import { Auth, CurrentUser } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { UserI } from '../../models';
-import { UpdateUserDto } from '../dto';
-import { UsersService } from '../service/users.service';
+import { UserI } from '../../../models';
+import { UpdateUserDto } from '../../dto';
+import { UsersService } from '../../service/users.service';
 
 @Resolver('updateUserResolver')
 export class updateUserResolver {

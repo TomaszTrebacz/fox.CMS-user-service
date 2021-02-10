@@ -1,7 +1,7 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Auth, userRole } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { AuthService } from '../service/auth.service';
-import { ChangeRoleDto } from '../dto';
+import { AuthService } from '../../service/auth.service';
+import { ChangeRoleDto } from '../../dto';
 
 @Resolver('changeRoleResolver')
 export class changeRoleResolver {

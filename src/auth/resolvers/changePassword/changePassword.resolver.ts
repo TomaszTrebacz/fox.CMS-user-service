@@ -1,7 +1,7 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Auth, CurrentUser } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { UserI } from '../../models';
-import { AuthService } from '../service/auth.service';
+import { UserI } from '../../../models';
+import { AuthService } from '../../service/auth.service';
 
 @Resolver('changePasswordResolver')
 export class changePasswordResolver {

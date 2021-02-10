@@ -3,7 +3,7 @@ import {
   AccessLevel,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { UsersService } from '../service/users.service';
+import { UsersService } from '../../service/users.service';
 
 @Resolver('deleteUserResolver')
 export class deleteUserResolver {

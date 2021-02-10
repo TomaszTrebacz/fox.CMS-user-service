@@ -3,9 +3,9 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { RedisUserI } from '../../models';
-import { MailService } from '../../shared/mail/mail.service';
-import { UsersService } from '../../users/service/users.service';
+import { RedisUserI } from '../../../models';
+import { MailService } from '../../../shared/mail/mail.service';
+import { UsersService } from '../../../users/service/users.service';
 
 @Resolver('changeConfirmTokenResolver')
 export class changeConfirmTokenResolver {

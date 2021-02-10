@@ -3,8 +3,8 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { TokenResponse } from '../../graphql';
-import { RedisUserI } from '../../models';
+import { TokenResponse } from '../../../graphql';
+import { RedisUserI } from '../../../models';
 
 @Resolver('refreshTokenResolver')
 export class refreshTokenResolver {

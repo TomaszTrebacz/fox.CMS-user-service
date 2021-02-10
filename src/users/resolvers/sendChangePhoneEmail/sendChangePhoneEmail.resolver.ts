@@ -5,8 +5,8 @@ import {
   CurrentUser,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { MailService } from '../../shared/mail/mail.service';
-import { UserI } from '../../models';
+import { MailService } from '../../../shared/mail/mail.service';
+import { UserI } from '../../../models';
 
 @Resolver('sendChangePhoneEmailResolver')
 export class sendChangePhoneEmailResolver {

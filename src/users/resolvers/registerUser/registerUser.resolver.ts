@@ -4,11 +4,11 @@ import {
   RedisHandlerService,
   userRole,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { MailService } from '../../shared/mail/mail.service';
-import { SmsService } from '../../shared/sms/sms.service';
-import { UserI } from '../../models';
-import { CreateUserDto } from '../dto';
-import { UsersService } from '../service/users.service';
+import { MailService } from '../../../shared/mail/mail.service';
+import { SmsService } from '../../../shared/sms/sms.service';
+import { UserI } from '../../../models';
+import { CreateUserDto } from '../../dto';
+import { UsersService } from '../../service/users.service';
 
 @Resolver('registerUserResolver')
 export class registerUserResolver {

@@ -3,7 +3,7 @@ import {
   AuthGqlRedisService,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { RedisUserI } from '../../models';
+import { RedisUserI } from '../../../models';
 
 @Resolver('confirmUserResolver')
 export class confirmUserResolver {
