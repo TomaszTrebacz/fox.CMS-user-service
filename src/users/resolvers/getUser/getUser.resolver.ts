@@ -10,9 +10,4 @@ export class getUserResolver {
   async getUser(@Args('id') id: string): Promise<UserI> {
     return await this.usersService.findOneById(id);
   }
-
-  @ResolveReference()
-  async resolveReference(reference: { __typename: string; id: string }) {
-    return await this.usersService.findOneById(reference.id);
-  }
 }

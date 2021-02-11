@@ -13,6 +13,7 @@ import {
   findAllResolver,
   getUserResolver,
   registerUserResolver,
+  resolveReferenceResolver,
   sendChangePhoneEmailResolver,
   updateUserResolver,
 } from './resolvers';
@@ -33,6 +34,7 @@ import {
     updateUserResolver,
     changePhoneNumberResolver,
     deleteUserResolver,
+    resolveReferenceResolver,
     UsersService,
     phoneNumberExist,
     emailExist,

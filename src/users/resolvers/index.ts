@@ -6,3 +6,4 @@ export * from './sendChangePhoneEmail/sendChangePhoneEmail.resolver';
 export * from './currentUser/currentUser.resolver';
 export * from './changePhoneNumber/changePhoneNumber.resolver';
 export * from './deleteUser/deleteUser.resolver';
+export * from './resolveReference/resolveReference.resolver';
