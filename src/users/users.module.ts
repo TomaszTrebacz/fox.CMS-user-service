@@ -6,17 +6,7 @@ import { phoneNumberExist, emailExist } from '../validators';
 import { AuthGqlRedisModule } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { UserEntity } from '../database/entities/user.entity';
 import { SharedModule } from '../shared/shared.module';
-import {
-  changePhoneNumberResolver,
-  currentUserResolver,
-  deleteUserResolver,
-  findAllResolver,
-  getUserResolver,
-  registerUserResolver,
-  resolveReferenceResolver,
-  sendChangePhoneEmailResolver,
-  updateUserResolver,
-} from './resolvers';
+import * as Resolvers from './resolvers';
 
 @Module({
   imports: [
@@ -26,15 +16,7 @@ import {
     SharedModule,
   ],
   providers: [
-    findAllResolver,
-    getUserResolver,
-    currentUserResolver,
-    registerUserResolver,
-    sendChangePhoneEmailResolver,
-    updateUserResolver,
-    changePhoneNumberResolver,
-    deleteUserResolver,
-    resolveReferenceResolver,
+    ...Object.values(Resolvers),
     UsersService,
     phoneNumberExist,
     emailExist,
