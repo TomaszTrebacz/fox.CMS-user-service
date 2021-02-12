@@ -1,6 +1,7 @@
 import { userRole } from '@tomasztrebacz/nest-auth-graphql-redis';
 import Redis from 'ioredis';
 import * as dotenv from 'dotenv';
+import { fakeUsers } from './data/fakeUsers.data';
 
 // npx ts-node src/database/seeds/redis.seed.ts
 
@@ -13,7 +14,7 @@ const redis = new Redis({
 
 redis
   .hmset(
-    '8055d923-0cfd-40e9-879e-638e8ffc7475',
+    fakeUsers[0].id,
     new Map<string, string>([
       ['role', userRole.USER],
       ['count', '0'],
@@ -21,12 +22,12 @@ redis
     ]),
   )
   .then(() => {
-    console.log('1/5 hash saved');
+    console.log('1/7 hash saved');
   });
 
 redis
   .hmset(
-    'ded8dc2f-ab3b-49a5-8f14-34bf89bc20ca',
+    fakeUsers[1].id,
     new Map<string, string>([
       ['role', userRole.ADMIN],
       ['count', '0'],
@@ -34,12 +35,12 @@ redis
     ]),
   )
   .then(() => {
-    console.log('2/5 hash saved');
+    console.log('2/7 hash saved');
   });
 
 redis
   .hmset(
-    '3d248dbc-4475-46e1-8361-6273d0f1fa9c',
+    fakeUsers[2].id,
     new Map<string, string>([
       ['role', userRole.ADMIN],
       ['count', '0'],
@@ -47,12 +48,12 @@ redis
     ]),
   )
   .then(() => {
-    console.log('3/5 hash saved');
+    console.log('3/7 hash saved');
   });
 
 redis
   .hmset(
-    '4f4c1d11-816f-46fa-8a8e-575ee1ca3998',
+    fakeUsers[3].id,
     new Map<string, string>([
       ['role', userRole.USER],
       ['count', '0'],
@@ -60,12 +61,12 @@ redis
     ]),
   )
   .then(() => {
-    console.log('4/5 hash saved');
+    console.log('4/7 hash saved');
   });
 
 redis
   .hmset(
-    '2bac1170-827d-49ad-b7a3-9c76e6ad83e9',
+    fakeUsers[4].id,
     new Map<string, string>([
       ['role', userRole.ROOT],
       ['count', '0'],
@@ -73,7 +74,33 @@ redis
     ]),
   )
   .then(() => {
-    console.log('5/5 hash saved');
+    console.log('5/7 hash saved');
+  });
+
+redis
+  .hmset(
+    fakeUsers[5].id,
+    new Map<string, string>([
+      ['role', userRole.USER],
+      ['count', '0'],
+      ['confirmed', 'true'],
+    ]),
+  )
+  .then(() => {
+    console.log('6/7 hash saved');
+  });
+
+redis
+  .hmset(
+    fakeUsers[6].id,
+    new Map<string, string>([
+      ['role', userRole.ROOT],
+      ['count', '0'],
+      ['confirmed', 'true'],
+    ]),
+  )
+  .then(() => {
+    console.log('7/7 hash saved');
   });
 
 redis.quit().then(() => {
