@@ -27,13 +27,6 @@ export class registerUserResolver {
     try {
       const createdUser = await this.usersService.createUser(registerData);
 
-      const smsData = {
-        phoneNumber: createdUser.phoneNumber,
-        body: `Hi ${createdUser.firstName}! Welcome in the foxCMS!`,
-      };
-
-      await this.smsService.sendSMS(smsData);
-
       const JWTpayload = {
         id: createdUser.id,
       };
