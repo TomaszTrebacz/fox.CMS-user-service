@@ -59,6 +59,8 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
+    "seed": "^0.4.4",
+    "seed-redis": "^0.5.3",
     "twilio": "^3.51.0",
     "typeorm": "^0.2.28",
     "typeorm-seeding": "^1.6.1"
