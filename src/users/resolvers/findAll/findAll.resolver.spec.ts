@@ -12,7 +12,7 @@ describe('findAllResolver', () => {
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       imports: [
-        TypeOrmModule.forRoot(),
+        TypeOrmModule.forRoot({ keepConnectionAlive: true }),
         TypeOrmModule.forFeature([UserEntity]),
       ],
       providers: [findAllResolver, UsersService],
@@ -21,27 +21,30 @@ describe('findAllResolver', () => {
     resolver = module.get<findAllResolver>(findAllResolver);
   });
 
-  describe('findAllResolver', () => {
-    it('should return the users array', async () => {
-      let res = await resolver.findAll();
-      expect(res).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            id: expect.stringMatching(regexUUID),
-            firstName: expect.any(String),
-            lastName: expect.any(String),
-            password: expect.any(String),
-            phoneNumber: expect.any(String),
-            created: expect.any(Date),
-            updated: expect.any(Date),
-          }),
-        ]),
-      );
+  it('should be defined', () => {
+    expect(findAllResolver).toBeDefined();
+  });
 
-      res.forEach(function(v) {
-        delete v.created, delete v.updated;
-      });
-      expect(res).toEqual(fakeUsers);
+  it('should return the users array', async () => {
+    let res = await resolver.findAll();
+
+    expect(res).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: expect.stringMatching(regexUUID),
+          firstName: expect.any(String),
+          lastName: expect.any(String),
+          password: expect.any(String),
+          phoneNumber: expect.any(String),
+          created: expect.any(Date),
+          updated: expect.any(Date),
+        }),
+      ]),
+    );
+
+    res.forEach(function(v) {
+      delete v.created, delete v.updated;
     });
+    expect(res).toEqual(fakeUsers);
   });
 });

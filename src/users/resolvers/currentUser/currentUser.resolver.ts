@@ -9,7 +9,7 @@ export class currentUserResolver {
 
   @Query('currentUser')
   @Auth()
-  async currentUser(@CurrentUser() user: UserI): Promise<UserI> {
+  async currentUser(@CurrentUser() user: Partial<UserI>): Promise<UserI> {
     return await this.usersService.findOneById(user.id);
   }
 }
