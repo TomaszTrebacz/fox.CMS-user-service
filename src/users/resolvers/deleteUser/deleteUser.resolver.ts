@@ -16,8 +16,8 @@ export class deleteUserResolver {
   @AccessLevel()
   async deleteUser(@Args('id') id: string): Promise<boolean> {
     try {
-      await this.usersService.deleteUser(id);
       await this.redisHandler.deleteUser(id);
+      await this.usersService.deleteUser(id);
 
       return true;
     } catch (err) {
