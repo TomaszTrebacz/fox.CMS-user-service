@@ -46,7 +46,7 @@ describe('currentUserResolver', () => {
   });
   describe('otherwise', () => {
     const FakeUser: Partial<UserI> = {
-      id: '7a01351b-1137-41bb-b3ec-fbad2b098f51',
+      id: '926d9487-339b-49d5-8660-479d48a62474',
     };
 
     it('should return the detailed error', async () => {
