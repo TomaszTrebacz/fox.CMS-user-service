@@ -1,4 +1,4 @@
-import { Resolver, Query, Args, ResolveReference } from '@nestjs/graphql';
+import { Resolver, Query, Args } from '@nestjs/graphql';
 import { UserI } from '../../../models';
 import { UsersService } from '../../service/users.service';
 

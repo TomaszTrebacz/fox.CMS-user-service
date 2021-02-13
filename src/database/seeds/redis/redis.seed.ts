@@ -1,9 +1,9 @@
 import { userRole } from '@tomasztrebacz/nest-auth-graphql-redis';
 import Redis from 'ioredis';
 import * as dotenv from 'dotenv';
-import { fakeUsers } from './data/fakeUsers.data';
+import { fakeUsers } from '../data/fakeUsers.data';
 
-// npx ts-node src/database/seeds/redis.seed.ts
+// npx ts-node src/database/seeds/redis/redis.seed.ts
 
 dotenv.config();
 const redis = new Redis({
@@ -94,7 +94,7 @@ redis
   .hmset(
     fakeUsers[6].id,
     new Map<string, string>([
-      ['role', userRole.ROOT],
+      ['role', userRole.USER],
       ['count', '0'],
       ['confirmed', 'true'],
     ]),

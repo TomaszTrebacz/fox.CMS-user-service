@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RedisHandlerService } from '@tomasztrebacz/nest-auth-graphql-redis';
+import { UsersService } from '../../users/service/users.service';
 import { UserI } from '../../models';
-import { UsersService } from '../../users/users.service';
 import { AuthService } from './auth.service';
 
 const user: UserI = {
