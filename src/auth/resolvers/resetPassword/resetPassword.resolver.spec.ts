@@ -16,10 +16,8 @@ import { UnauthorizedException } from '@nestjs/common';
 describe('currentUserResolver', () => {
   let resolver: resetPasswordResolver;
   let redisHandler: RedisHandlerService;
-  let authService: AuthService;
   let smsService: SmsService;
   let authGqlService: AuthGqlRedisService;
-  let usersService: UsersService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
@@ -56,7 +54,6 @@ describe('currentUserResolver', () => {
 
     resolver = module.get<resetPasswordResolver>(resetPasswordResolver);
     redisHandler = module.get<RedisHandlerService>(RedisHandlerService);
-    authService = module.get<AuthService>(AuthService);
     smsService = module.get<SmsService>(SmsService);
     authGqlService = module.get<AuthGqlRedisService>(AuthGqlRedisService);
   });
