@@ -12,7 +12,7 @@ export class logoutResolver {
 
       return true;
     } catch (err) {
-      throw new Error(err);
+      throw new Error(`Can not log out: ${err.message}`);
     }
   }
 }
