@@ -55,7 +55,9 @@ export class sendChangePhoneEmailResolver {
 
       return true;
     } catch (err) {
-      throw new Error(err.message);
+      throw new Error(
+        `We are sorry, ${user.firstName}. We can not send you email with phone change link: ${err.message}`,
+      );
     }
   }
 }
