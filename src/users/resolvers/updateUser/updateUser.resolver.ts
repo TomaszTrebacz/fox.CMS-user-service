@@ -19,7 +19,7 @@ export class updateUserResolver {
 
       return true;
     } catch (err) {
-      throw new Error(`Cannot update user: ${err.message}`);
+      throw new Error(err.message);
     }
   }
 }
