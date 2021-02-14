@@ -38,7 +38,7 @@ export class changePassByTokenResolver {
       await this.redisHandler.deleteField(id, 'changepasstoken');
       return true;
     } catch (err) {
-      throw new Error(err.message);
+      throw new Error(`Can not change password: ${err.message}`);
     }
   }
 }
