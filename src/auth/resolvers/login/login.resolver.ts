@@ -7,6 +7,7 @@ import { LoginResponse } from '../../../graphql';
 import { ExtendedUserI, RedisUserI } from '../../../models';
 import { AuthService } from '../../service/auth.service';
 import { LoginDto } from '../../dto';
+import { password } from 'ormconfig';
 
 @Resolver('Login')
 export class loginResolver {
@@ -21,9 +22,10 @@ export class loginResolver {
     @Args('loginCredentials') loginCredentials: LoginDto,
   ): Promise<LoginResponse> {
     try {
-      const postgresUser = await this.authService.validateUser(
-        loginCredentials,
-      );
+      const postgresUser = await this.authService.validateUser({
+        email: loginCredentials.email.toLowerCase(),
+        password: loginCredentials.password,
+      });
 
       const keys = ['role', 'count'];
       const redisUser = await this.redisHandler.getFields(
