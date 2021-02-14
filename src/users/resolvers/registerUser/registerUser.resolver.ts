@@ -5,7 +5,6 @@ import {
   userRole,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { MailService } from '../../../shared/mail/mail.service';
-import { SmsService } from '../../../shared/sms/sms.service';
 import { UserI } from '../../../models';
 import { CreateUserDto } from '../../dto';
 import { UsersService } from '../../service/users.service';
@@ -17,7 +16,6 @@ export class registerUserResolver {
     private readonly authGqlService: AuthGqlRedisService,
     private readonly redisHandler: RedisHandlerService,
     private readonly mailService: MailService,
-    private readonly smsService: SmsService,
   ) {}
 
   @Mutation()
@@ -67,7 +65,9 @@ export class registerUserResolver {
 
       return createdUser;
     } catch (err) {
-      throw new Error(err.message);
+      throw new Error(
+        `We are sorry, ${registerData.firstName} ${registerData.lastName}. We can not register your account: ${err.message}`,
+      );
     }
   }
 }
