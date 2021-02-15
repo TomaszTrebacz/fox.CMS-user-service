@@ -2,12 +2,10 @@ import { Test } from '@nestjs/testing';
 import { UsersService } from '../../../users/service/users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../../../database/entities/user.entity';
-import {
-  AuthGqlRedisService,
-  RedisHandlerService,
-} from '@tomasztrebacz/nest-auth-graphql-redis';
+import { RedisHandlerService } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { deleteUserResolver } from './deleteUser.resolver';
 import { CreateUserDto } from 'src/users/dto';
+import { mockedRedisHandlerService } from '../../../../test/mocks';
 
 describe('deleteUserResolver', () => {
   let resolver: deleteUserResolver;
@@ -25,9 +23,7 @@ describe('deleteUserResolver', () => {
         UsersService,
         {
           provide: RedisHandlerService,
-          useValue: {
-            deleteUser: jest.fn(),
-          },
+          useValue: mockedRedisHandlerService,
         },
       ],
     }).compile();
@@ -95,7 +91,7 @@ describe('deleteUserResolver', () => {
             `Can not delete user data from databases: ${errMessage}`,
           );
         } finally {
-          expect(redisDeleteUserSpy).toHaveBeenCalledTimes(1);
+          expect(redisDeleteUserSpy).toHaveBeenCalledTimes(3);
         }
       });
     });

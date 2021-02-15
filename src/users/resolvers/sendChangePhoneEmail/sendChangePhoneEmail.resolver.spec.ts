@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../../../database/entities/user.entity';
 import {
   AuthGqlRedisService,
-  JwtPayload,
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { AuthService } from '../../../auth/service/auth.service';
@@ -12,7 +11,7 @@ import { MailService } from '../../../shared/mail/mail.service';
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { sendChangePhoneEmailResolver } from './sendChangePhoneEmail.resolver';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 

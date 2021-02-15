@@ -11,11 +11,11 @@ import {
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 import { refreshTokenResolver } from './refreshToken.resolver';
 
-describe('logoutResolver', () => {
+describe('refreshTokenResolver', () => {
   let resolver: refreshTokenResolver;
   let redisHandler: RedisHandlerService;
   let authGqlService: AuthGqlRedisService;

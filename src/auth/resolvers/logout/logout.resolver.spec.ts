@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../../../database/entities/user.entity';
 import { AuthService } from '../../../auth/service/auth.service';
 import { RedisHandlerService } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { mockedRedisHandlerService } from '../../../utils';
+import { mockedRedisHandlerService } from '../../../../test/mocks';
 import { logoutResolver } from './logout.resolver';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 

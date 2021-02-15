@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../../../database/entities/user.entity';
 import { updateUserResolver } from './updateUser.resolver';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
-import { regexPHONE } from 'src/utils';
 import { UserI } from '../../../models';
 
 describe('currentUserResolver', () => {

@@ -5,15 +5,13 @@ import {
   AuthGqlRedisService,
   JwtPayload,
   RedisHandlerService,
-  userRole,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { confirmUserResolver } from './confirmUser.resolver';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
-import { throwError } from 'rxjs';
 
 describe('confirmUserResolver', () => {
   let resolver: confirmUserResolver;

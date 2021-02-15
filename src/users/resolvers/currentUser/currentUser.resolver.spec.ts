@@ -27,17 +27,17 @@ describe('currentUserResolver', () => {
 
   describe('if id exists in database', () => {
     const User: Partial<UserI> = {
-      id: fakeUsers[0].id,
+      id: fakeUsers[4].id,
     };
 
     it('should return an user', async () => {
       expect(await resolver.currentUser(User)).toEqual(
         expect.objectContaining({
-          id: fakeUsers[0].id,
-          firstName: fakeUsers[0].firstName,
-          lastName: fakeUsers[0].lastName,
-          password: fakeUsers[0].password,
-          phoneNumber: fakeUsers[0].phoneNumber,
+          id: fakeUsers[4].id,
+          firstName: fakeUsers[4].firstName,
+          lastName: fakeUsers[4].lastName,
+          password: fakeUsers[4].password,
+          phoneNumber: fakeUsers[4].phoneNumber,
           created: expect.any(Date),
           updated: expect.any(Date),
         }),

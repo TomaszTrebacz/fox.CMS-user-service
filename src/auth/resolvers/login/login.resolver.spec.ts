@@ -10,20 +10,16 @@ import {
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { AuthService } from '../../../auth/service/auth.service';
 import { loginResolver } from './login.resolver';
-import { LoginResponse, User } from '../../../graphql';
 import { LoginDto } from '../../../auth/dto';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
-import { ExtendedUserI, RedisUserI } from 'src/models';
 
 describe('loginResolver', () => {
   let resolver: loginResolver;
-  let authService: AuthService;
   let redisHandler: RedisHandlerService;
   let authGqlService: AuthGqlRedisService;
-  let usersService: UsersService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
@@ -47,8 +43,6 @@ describe('loginResolver', () => {
     }).compile();
 
     resolver = module.get<loginResolver>(loginResolver);
-    authService = module.get<AuthService>(AuthService);
-    usersService = module.get<UsersService>(UsersService);
     redisHandler = module.get<RedisHandlerService>(RedisHandlerService);
     authGqlService = module.get<AuthGqlRedisService>(AuthGqlRedisService);
   });
@@ -58,13 +52,13 @@ describe('loginResolver', () => {
   });
 
   describe('if user provided valid data', () => {
-    const accessToken = 'dwaads';
-    const refreshToken = 'dsawdwa';
+    const accessToken = 'egfydthg67[..]';
+    const refreshToken = 'eghghtf[..]';
 
     it('should log in and return valid response', async () => {
       const loginCredentials: LoginDto = {
         email: fakeUsers[5].email,
-        password: 'JohnSmith',
+        password: 'KevinMoorePass',
       };
 
       const redisHandlerGetFieldSpy = jest
@@ -105,7 +99,7 @@ describe('loginResolver', () => {
       it('should log in and return valid response', async () => {
         const loginCredentials: LoginDto = {
           email: fakeUsers[5].email.toUpperCase(),
-          password: 'JohnSmith',
+          password: 'KevinMoorePass',
         };
 
         const redisHandlerGetFieldSpy = jest

@@ -5,14 +5,12 @@ import { UserEntity } from '../../../database/entities/user.entity';
 import { changePasswordResolver } from './changePassword.resolver';
 import { AuthService } from '../../../auth/service/auth.service';
 import { RedisHandlerService } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { mockedRedisHandlerService } from '../../../utils';
+import { mockedRedisHandlerService } from '../../../../test/mocks';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 import { UserI } from '../../../models';
 
 describe('changePasswordResolver', () => {
   let resolver: changePasswordResolver;
-  let authService: AuthService;
-  let redisHandler: RedisHandlerService;
   let usersService: UsersService;
 
   beforeEach(async () => {
@@ -33,8 +31,6 @@ describe('changePasswordResolver', () => {
     }).compile();
 
     resolver = module.get<changePasswordResolver>(changePasswordResolver);
-    authService = module.get<AuthService>(AuthService);
-    redisHandler = module.get<RedisHandlerService>(RedisHandlerService);
     usersService = module.get<UsersService>(UsersService);
   });
 

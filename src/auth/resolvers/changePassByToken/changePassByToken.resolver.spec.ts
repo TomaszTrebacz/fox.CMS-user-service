@@ -10,7 +10,7 @@ import {
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { changePassByTokenResolver } from './changePassByToken.resolver';
 import { AuthService } from '../../../auth/service/auth.service';
 import { ChangePassByTokenDto } from 'src/auth/dto';
@@ -53,7 +53,7 @@ describe('changePassByTokenResolver', () => {
     expect(changePassByTokenResolver).toBeDefined();
   });
 
-  const validToken = 'gfdgfd';
+  const validToken = 'eyghfu56[..]';
 
   const data: ChangePassByTokenDto = {
     token: validToken,

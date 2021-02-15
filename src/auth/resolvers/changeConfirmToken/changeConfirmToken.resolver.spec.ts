@@ -7,14 +7,14 @@ import {
   RedisHandlerService,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { changeConfirmTokenResolver } from './changeConfirmToken.resolver';
+import { MailService } from '../../../shared/mail/mail.service';
+import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
-import { MailService } from '../../../shared/mail/mail.service';
-import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
+} from '../../../../test/mocks';
 
-describe('currentUserResolver', () => {
+describe('changeConfirmTokenResolver', () => {
   let resolver: changeConfirmTokenResolver;
   let redisHandler: RedisHandlerService;
   let mailService: MailService;

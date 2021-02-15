@@ -9,7 +9,7 @@ import {
 import {
   mockedAuthGqlRedisService,
   mockedRedisHandlerService,
-} from '../../../utils';
+} from '../../../../test/mocks';
 import { sendChangePassEmailResolver } from './sendChangePassEmail.resolver';
 import { MailService } from '../../../shared/mail/mail.service';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';

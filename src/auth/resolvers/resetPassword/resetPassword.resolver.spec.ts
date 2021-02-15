@@ -12,8 +12,12 @@ import { AuthService } from '../../../auth/service/auth.service';
 import { SmsService } from '../../../shared/sms/sms.service';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 import { UnauthorizedException } from '@nestjs/common';
+import {
+  mockedAuthGqlRedisService,
+  mockedRedisHandlerService,
+} from '../../../../test/mocks';
 
-describe('currentUserResolver', () => {
+describe('resetPasswordResolver', () => {
   let resolver: resetPasswordResolver;
   let redisHandler: RedisHandlerService;
   let smsService: SmsService;
@@ -31,17 +35,11 @@ describe('currentUserResolver', () => {
         AuthService,
         {
           provide: RedisHandlerService,
-          useValue: {
-            getValue: jest.fn(),
-            deleteField: jest.fn(),
-            setUser: jest.fn(),
-          },
+          useValue: mockedRedisHandlerService,
         },
         {
           provide: AuthGqlRedisService,
-          useValue: {
-            verifyToken: jest.fn(),
-          },
+          useValue: mockedAuthGqlRedisService,
         },
         {
           provide: SmsService,
@@ -64,7 +62,7 @@ describe('currentUserResolver', () => {
 
   describe('if phone number and code was valid', () => {
     const resetData = {
-      phoneNumber: fakeUsers[6].phoneNumber,
+      phoneNumber: fakeUsers[1].phoneNumber,
       code: 4200,
     };
 
@@ -74,7 +72,7 @@ describe('currentUserResolver', () => {
         .mockResolvedValueOnce('4200');
 
       const mockedPayload: JwtPayload = {
-        id: fakeUsers[6].id,
+        id: fakeUsers[1].id,
         code: resetData.code,
         iat: 1516239022,
         exp: 1516239022,
@@ -99,21 +97,12 @@ describe('currentUserResolver', () => {
       const smsServiceSendSpy = jest.spyOn(smsService, 'sendSMS');
 
       expect(await resolver.resetPassword(resetData)).toBeTruthy();
-      expect(redisHandlerGetValueSpy).toBeCalledWith(
-        fakeUsers[6].id,
-        'codetoken',
-      );
-      expect(authGqlVerifyTokenSpy).toBeCalledWith(
-        '4200',
-        process.env.PHONECODE_JWT_SECRET,
-      );
-      expect(redisHandlerDeleteSpy).toBeCalled();
-      expect(redisHandlerAuthGetValueSpy).toBeCalled();
-      expect(redisHandlerSetUserSpy).toBeCalledWith(
-        fakeUsers[6].id,
-        new Map<string, string>([['count', '1']]),
-      );
-      expect(smsServiceSendSpy).toBeCalled();
+      expect(redisHandlerGetValueSpy).toBeCalledTimes(2);
+      expect(authGqlVerifyTokenSpy).toBeCalledTimes(1);
+      expect(redisHandlerDeleteSpy).toBeCalledTimes(1);
+      expect(redisHandlerAuthGetValueSpy).toBeCalledTimes(2);
+      expect(redisHandlerSetUserSpy).toBeCalledTimes(1);
+      expect(smsServiceSendSpy).toBeCalledTimes(1);
     });
   });
 
@@ -137,8 +126,8 @@ describe('currentUserResolver', () => {
 
     describe('if code was not valid', () => {
       const data = {
-        phoneNumber: fakeUsers[6].phoneNumber,
-        code: 4200,
+        phoneNumber: fakeUsers[2].phoneNumber,
+        code: 4201,
       };
 
       it('should return the detailed error', async () => {
@@ -162,21 +151,15 @@ describe('currentUserResolver', () => {
         } catch (err) {
           expect(err.message).toEqual(`Can not reset password: Wrong code.`);
         } finally {
-          expect(redisHandlerGetValueSpy).toBeCalledWith(
-            fakeUsers[6].id,
-            'codetoken',
-          );
-          expect(authGqlVerifyTokenSpy).toBeCalledWith(
-            '1000',
-            process.env.PHONECODE_JWT_SECRET,
-          );
+          expect(redisHandlerGetValueSpy).toHaveBeenCalledTimes(3);
+          expect(authGqlVerifyTokenSpy).toHaveBeenCalledTimes(2);
         }
       });
     });
 
     describe('if the time to change the password has passed', () => {
       const data = {
-        phoneNumber: fakeUsers[6].phoneNumber,
+        phoneNumber: fakeUsers[2].phoneNumber,
         code: 4200,
       };
 
@@ -198,14 +181,8 @@ describe('currentUserResolver', () => {
         } catch (err) {
           expect(err.message).toEqual('Can not reset password: Invalid token.');
         } finally {
-          expect(redisHandlerGetValueSpy).toBeCalledWith(
-            fakeUsers[6].id,
-            'codetoken',
-          );
-          expect(authGqlVerifyTokenSpy).toBeCalledWith(
-            '4200',
-            process.env.PHONECODE_JWT_SECRET,
-          );
+          expect(redisHandlerGetValueSpy).toHaveBeenCalledTimes(4);
+          expect(authGqlVerifyTokenSpy).toHaveBeenCalledTimes(3);
         }
       });
     });

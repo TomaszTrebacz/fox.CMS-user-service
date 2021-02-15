@@ -5,7 +5,7 @@ export const fakeUsers = [
     firstName: 'Charles',
     lastName: 'Williams',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$RQXPAsMY9cQk1MqfAyU1Vg$5PrhStjEWZhE7TOkA7WwJPbLX12HbTy2RNFDPVG4A5CqX4ZSvAIpaw',
+      '$argon2i$v=19$m=4096,t=3,p=1$hF/NXin2LNZ3+JDzbpe8yg$Y4JNjN8BzdfHi54hjx0AzyQv+q7WrsW+ZbE/kv52HJVu03HVZsvhsg', // charlesPassword1
     phoneNumber: '+15005550006',
   },
   {
@@ -14,7 +14,7 @@ export const fakeUsers = [
     firstName: 'Gary',
     lastName: 'Green',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$RQXPAsMY9cQk1MqfAyU1Vg$5PrhStjEWZhE7TOkA7WwJPbLX12HbTy2RNFDPVG4A5CqX4ZSvAIpaw',
+      '$argon2i$v=19$m=4096,t=3,p=1$6NmGmf4Y9KpFK+VuEsmeQg$DOPCHbP/GLWt+SWQZGuWHU1WAD0NCqnoS/QO9KTe6kCQ4YmDukDD8w', // garyPassword1
     phoneNumber: '+15005550006',
   },
   {
@@ -23,7 +23,7 @@ export const fakeUsers = [
     firstName: 'Stephen',
     lastName: 'Edwards',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$If1I59eimnGgxLMfogrMBQ$BIX1Hy05JX6NraxOljWRk0edsnuL0DPyiCjEQXZHhIRqiG1ERZ1n0g',
+      '$argon2i$v=19$m=4096,t=3,p=1$5+nwDnchz/qpi7YEA3NuJg$jsoyCe0/1XxAgGgvB+2UXQ2l55H0S8mPQ2wdhe2KCRWaUbBBR7Zv9w', // stephenPassword1
     phoneNumber: '+15005550006',
   },
   {
@@ -32,7 +32,7 @@ export const fakeUsers = [
     firstName: 'Alexander',
     lastName: 'Lewis',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$lGo75A51WyVuS4SgeYz1ow$YogJNxFuIf/L6NjmEpemfQPQlgxg5Ka9/dsHf+ZCohXvD5yCM8Pupw', // 'examplePassword1'
+      '$argon2i$v=19$m=4096,t=3,p=1$lGo75A51WyVuS4SgeYz1ow$YogJNxFuIf/L6NjmEpemfQPQlgxg5Ka9/dsHf+ZCohXvD5yCM8Pupw', // examplePassword1
     phoneNumber: '+48767532860',
   },
   {
@@ -41,7 +41,7 @@ export const fakeUsers = [
     firstName: 'John',
     lastName: 'Smith',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$pKXnSV375zGY2ry+lgaA6w$+Q3imQq2EEUe4La8byZn0mR/in+YJ+CPXZ9wdmAJ++WUrPd96dpQYA', // 'JohnSmith'
+      '$argon2i$v=19$m=4096,t=3,p=1$pKXnSV375zGY2ry+lgaA6w$+Q3imQq2EEUe4La8byZn0mR/in+YJ+CPXZ9wdmAJ++WUrPd96dpQYA', // JohnSmith
     phoneNumber: '+48667532860',
   },
   {
@@ -50,7 +50,7 @@ export const fakeUsers = [
     firstName: 'Kevin',
     lastName: 'Moore',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$pKXnSV375zGY2ry+lgaA6w$+Q3imQq2EEUe4La8byZn0mR/in+YJ+CPXZ9wdmAJ++WUrPd96dpQYA',
+      '$argon2i$v=19$m=4096,t=3,p=1$js5TfjLcD1KpfQfNmG9fYA$VzQCuIxp4/OUzUYKDU2Whk4lMv9xfuALSsDbpZdxlFeEPGBJB6hVyQ', // KevinMoorePass
     phoneNumber: '+48421345789',
   },
   {
@@ -59,7 +59,7 @@ export const fakeUsers = [
     firstName: 'Thomas',
     lastName: 'Perez',
     password:
-      '$argon2i$v=19$m=4096,t=3,p=1$pKXnSV375zGY2ry+lgaA6w$+Q3imQq2EEUe4La8byZn0mR/in+YJ+CPXZ9wdmAJ++WUrPd96dpQYA',
+      '$argon2i$v=19$m=4096,t=3,p=1$GoGYEFbO6L8erBcUsxo6Qg$fbbnT9rdF8fVFnp1aCV9z69BO0752P4TbCLIoTwO2AQSirVefUbyBQ', // ThomasIsPassword
     phoneNumber: '+48441345789',
   },
 ];

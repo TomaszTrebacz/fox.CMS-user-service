@@ -18,7 +18,7 @@ redis
     new Map<string, string>([
       ['role', userRole.USER],
       ['count', '0'],
-      ['confirmed', 'true'],
+      ['confirmed', 'false'],
     ]),
   )
   .then(() => {

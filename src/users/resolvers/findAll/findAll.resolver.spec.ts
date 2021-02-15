@@ -3,8 +3,7 @@ import { UsersService } from '../../../users/service/users.service';
 import { findAllResolver } from './findAll.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../../../database/entities/user.entity';
-import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
-import { regexUUID } from '../../../utils';
+import { regexPHONE, regexUUID } from '../../../utils';
 
 describe('findAllResolver', () => {
   let resolver: findAllResolver;
@@ -35,16 +34,11 @@ describe('findAllResolver', () => {
           firstName: expect.any(String),
           lastName: expect.any(String),
           password: expect.any(String),
-          phoneNumber: expect.any(String),
+          phoneNumber: expect.stringMatching(regexPHONE),
           created: expect.any(Date),
           updated: expect.any(Date),
         }),
       ]),
     );
-
-    res.forEach(function(v) {
-      delete v.created, delete v.updated;
-    });
-    expect(res).toEqual(fakeUsers);
   });
 });

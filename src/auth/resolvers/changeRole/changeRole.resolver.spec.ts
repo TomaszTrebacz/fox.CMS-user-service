@@ -7,9 +7,8 @@ import {
   RedisHandlerService,
   userRole,
 } from '@tomasztrebacz/nest-auth-graphql-redis';
-import { mockedRedisHandlerService } from '../../../utils';
+import { mockedRedisHandlerService } from '../../../../test/mocks';
 import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
-import { UserI } from '../../../models';
 import { changeRoleResolver } from './changeRole.resolver';
 import { ChangeRoleDto } from 'src/auth/dto';
 
