@@ -6,12 +6,10 @@ import {
 import { RedisUserI } from '../../../models';
 import { MailService } from '../../../shared/mail/mail.service';
 import { UsersService } from '../../../users/service/users.service';
-import { AuthService } from '../../service/auth.service';
 
 @Resolver('sendChangePassEmailResolver')
 export class sendChangePassEmailResolver {
   constructor(
-    private readonly authService: AuthService,
     private readonly redisHandler: RedisHandlerService,
     private readonly authGqlService: AuthGqlRedisService,
     private readonly usersService: UsersService,
@@ -54,7 +52,9 @@ export class sendChangePassEmailResolver {
 
       return true;
     } catch (err) {
-      throw new Error(err.message);
+      throw new Error(
+        `Can not send mail with link to change password: ${err.message}`,
+      );
     }
   }
 }
