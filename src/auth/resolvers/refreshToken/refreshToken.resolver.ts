@@ -15,7 +15,7 @@ export class refreshTokenResolver {
 
   @Mutation('refreshToken')
   async refreshToken(
-    @Args('refreshToken') refreshToken: Pick<RedisUserI, 'refreshtoken'>,
+    @Args('refreshToken') refreshToken: string,
   ): Promise<TokenResponse> {
     try {
       const decodedJWT = await this.authGqlService.verifyToken(
@@ -65,7 +65,7 @@ export class refreshTokenResolver {
 
       return TokenResponse;
     } catch (err) {
-      throw new Error(err.message);
+      throw new Error(`Can not send new pair of tokens: ${err.message}`);
     }
   }
 }
