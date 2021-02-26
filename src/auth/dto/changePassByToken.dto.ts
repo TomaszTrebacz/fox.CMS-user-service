@@ -5,7 +5,7 @@ export class ChangePassByTokenDto extends ChangePassByTokenInput {
   @IsString()
   token: string;
 
-  @MinLength(3)
-  @MaxLength(30)
+  @MinLength(8)
+  @MaxLength(128)
   password: string;
 }

@@ -10,7 +10,7 @@ export class CreateUserDto extends CreateUserInput {
   @Length(3, 50)
   firstName: string;
 
-  @Length(5, 50)
+  @Length(3, 50)
   lastName: string;
 
   @Length(8, 128)

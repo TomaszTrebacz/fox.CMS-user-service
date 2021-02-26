@@ -3,10 +3,10 @@ import { UpdateUserInput } from '../../graphql';
 
 export class UpdateUserDto extends UpdateUserInput {
   @IsOptional()
-  @Length(3, 62)
+  @Length(3, 50)
   firstName: string;
 
   @IsOptional()
-  @Length(6, 62)
+  @Length(3, 50)
   lastName: string;
 }
