@@ -7,7 +7,6 @@ import { LoginResponse } from '../../../graphql';
 import { ExtendedUserI, RedisUserI } from '../../../models';
 import { AuthService } from '../../service/auth.service';
 import { LoginDto } from '../../dto';
-import { password } from 'ormconfig';
 
 @Resolver('Login')
 export class loginResolver {

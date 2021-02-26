@@ -7,6 +7,7 @@ import {
 } from '@tomasztrebacz/nest-auth-graphql-redis';
 import { MailService } from '../../../shared/mail/mail.service';
 import { UserI } from '../../../models';
+import { UsersService } from '../../../users/service/users.service';
 
 @Resolver('sendChangePhoneEmailResolver')
 export class sendChangePhoneEmailResolver {
@@ -14,15 +15,18 @@ export class sendChangePhoneEmailResolver {
     private readonly authGqlService: AuthGqlRedisService,
     private readonly redisHandler: RedisHandlerService,
     private readonly mailService: MailService,
+    private readonly usersService: UsersService,
   ) {}
 
   @Mutation()
   @Auth()
   async sendChangePhoneEmail(
-    @CurrentUser() user: UserI,
+    @CurrentUser() payload: UserI,
     @Args('phoneNumber') phoneNumber: string,
   ): Promise<boolean> {
     try {
+      const user = await this.usersService.findOneById(payload.id);
+
       const JWTpayload = {
         id: user.id,
         data: phoneNumber,
@@ -56,7 +60,7 @@ export class sendChangePhoneEmailResolver {
       return true;
     } catch (err) {
       throw new Error(
-        `We are sorry, ${user.firstName}. We can not send you email with phone change link: ${err.message}`,
+        `We are sorry. We can not send you email with phone change link: ${err.message}`,
       );
     }
   }

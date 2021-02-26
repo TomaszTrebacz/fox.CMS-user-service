@@ -7,8 +7,8 @@ import { UsersService } from '../../service/users.service';
 export class findAllResolver {
   constructor(private readonly usersService: UsersService) {}
 
-  @Query('findAll')
-  @Auth(userRole.ADMIN)
+  @Query('users')
+  @Auth(userRole.ADMIN, userRole.ROOT)
   async findAll(): Promise<UserI[]> {
     return await this.usersService.findAll();
   }
