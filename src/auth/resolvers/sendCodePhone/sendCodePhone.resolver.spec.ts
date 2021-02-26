@@ -141,6 +141,7 @@ describe('sendCodePhoneResolver', () => {
               `Can not send confirmation code: ${errMessage}`,
             );
           } finally {
+            expect(smsSpy).toHaveBeenCalled();
             expect(authGqlCreateJwtSpy).toHaveBeenCalledTimes(3);
             expect(redisSetUser).toHaveBeenCalledTimes(3);
           }

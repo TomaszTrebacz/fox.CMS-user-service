@@ -110,7 +110,7 @@ describe('sendChangePhoneEmailResolver', () => {
           await resolver.sendChangePhoneEmail(user, user.phoneNumber);
         } catch (err) {
           expect(err.message).toEqual(
-            `We are sorry, ${user.firstName}. We can not send you email with phone change link: ${errMessage}`,
+            `We are sorry. We can not send you email with phone change link: ${errMessage}`,
           );
         } finally {
           expect(authGqlServiceCreateJwtSpy).toHaveBeenCalled();
@@ -143,7 +143,7 @@ describe('sendChangePhoneEmailResolver', () => {
           await resolver.sendChangePhoneEmail(user, user.phoneNumber);
         } catch (err) {
           expect(err.message).toEqual(
-            `We are sorry, ${user.firstName}. We can not send you email with phone change link: ${errMessage}`,
+            `We are sorry. We can not send you email with phone change link: ${errMessage}`,
           );
         } finally {
           expect(authGqlServiceCreateJwtSpy).toHaveBeenCalled();

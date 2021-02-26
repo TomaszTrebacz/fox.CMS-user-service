@@ -91,7 +91,7 @@ describe('deleteUserResolver', () => {
             `Can not delete user data from databases: ${errMessage}`,
           );
         } finally {
-          expect(redisDeleteUserSpy).toHaveBeenCalledTimes(3);
+          expect(redisDeleteUserSpy).toHaveBeenCalled();
         }
       });
     });

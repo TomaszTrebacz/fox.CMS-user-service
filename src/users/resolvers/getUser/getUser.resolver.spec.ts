@@ -8,7 +8,6 @@ import { regexPHONE } from '../../../utils';
 
 describe('getUserResolver', () => {
   let resolver: getUserResolver;
-  let usersService: UsersService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
@@ -20,7 +19,6 @@ describe('getUserResolver', () => {
     }).compile();
 
     resolver = module.get<getUserResolver>(getUserResolver);
-    usersService = module.get<UsersService>(UsersService);
   });
 
   it('should be defined', () => {

@@ -15,7 +15,6 @@ describe('registerUserResolver', () => {
   let resolver: registerUserResolver;
   let redisHandler: RedisHandlerService;
   let authGqlService: AuthGqlRedisService;
-  let usersService: UsersService;
   let mailService: MailService;
 
   beforeEach(async () => {
@@ -51,7 +50,6 @@ describe('registerUserResolver', () => {
     resolver = module.get<registerUserResolver>(registerUserResolver);
     redisHandler = module.get<RedisHandlerService>(RedisHandlerService);
     authGqlService = module.get<AuthGqlRedisService>(AuthGqlRedisService);
-    usersService = module.get<UsersService>(UsersService);
     mailService = module.get<MailService>(MailService);
   });
 

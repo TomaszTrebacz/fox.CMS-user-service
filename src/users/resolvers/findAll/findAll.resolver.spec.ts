@@ -25,7 +25,7 @@ describe('findAllResolver', () => {
   });
 
   it('should return the users array', async () => {
-    let res = await resolver.findAll();
+    const res = await resolver.findAll();
 
     expect(res).toEqual(
       expect.arrayContaining([

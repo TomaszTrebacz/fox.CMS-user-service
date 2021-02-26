@@ -18,7 +18,6 @@ import { fakeUsers } from '../../../database/seeds/data/fakeUsers.data';
 
 describe('changePassByTokenResolver', () => {
   let resolver: changePassByTokenResolver;
-  let authService: AuthService;
   let redisHandler: RedisHandlerService;
   let authGqlService: AuthGqlRedisService;
 
@@ -44,7 +43,6 @@ describe('changePassByTokenResolver', () => {
     }).compile();
 
     resolver = module.get<changePassByTokenResolver>(changePassByTokenResolver);
-    authService = module.get<AuthService>(AuthService);
     redisHandler = module.get<RedisHandlerService>(RedisHandlerService);
     authGqlService = module.get<AuthGqlRedisService>(AuthGqlRedisService);
   });
