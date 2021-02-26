@@ -29,7 +29,7 @@ redis
   .hmset(
     fakeUsers[1].id,
     new Map<string, string>([
-      ['role', userRole.ADMIN],
+      ['role', userRole.USER],
       ['count', '0'],
       ['confirmed', 'true'],
     ]),
@@ -83,7 +83,7 @@ redis
     new Map<string, string>([
       ['role', userRole.USER],
       ['count', '0'],
-      ['confirmed', 'true'],
+      ['confirmed', 'false'],
     ]),
   )
   .then(() => {
@@ -97,6 +97,57 @@ redis
       ['role', userRole.USER],
       ['count', '0'],
       ['confirmed', 'true'],
+    ]),
+  )
+  .then(() => {
+    console.log('7/7 hash saved');
+  });
+
+redis
+  .hmset(
+    fakeUsers[7].id,
+    new Map<string, string>([
+      ['role', userRole.USER],
+      ['count', '0'],
+      ['confirmed', 'false'],
+      [
+        'confirmtoken',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTcyY2Y1LTFhNTItNDM5ZC04ODcxLTA3YWU1YzE4ZWJiNSIsImlhdCI6MTYxNDM0MTQ1NiwiZXhwIjoxNzAwNzQxNDU2fQ.BMVnCMeFI-PxbyB3zSkIoeM-rf2YXJhkYcRwITZcF7o',
+      ],
+    ]),
+  )
+  .then(() => {
+    console.log('7/7 hash saved');
+  });
+
+redis
+  .hmset(
+    fakeUsers[8].id,
+    new Map<string, string>([
+      ['role', userRole.USER],
+      ['count', '0'],
+      ['confirmed', 'true'],
+      [
+        'changepasstoken',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUyN2Q2OTg3LTBjNjAtNDJiYS04ZGVlLTM2YTFiMDlkMDhmMSIsImlhdCI6MTYxNDM0MjkyMCwiZXhwIjoxNjQ1ODc4OTIwfQ.kmsD0GARoRoxHDzRhp2I4j5f_NsNPkhAvCmyFBAAZJk',
+      ],
+      [
+        'codetoken',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjozOTYxLCJpYXQiOjE2MTQzNDc3NzksImV4cCI6MTcwMDc0Nzc3OX0.Sr1wSfocHPj8ghdQrz8SZfoXZi4KevSxZCMpz-wrB9k',
+      ],
+    ]),
+  )
+  .then(() => {
+    console.log('7/7 hash saved');
+  });
+
+redis
+  .hmset(
+    fakeUsers[9].id,
+    new Map<string, string>([
+      ['role', userRole.USER],
+      ['count', '0'],
+      ['confirmed', 'false'],
     ]),
   )
   .then(() => {
