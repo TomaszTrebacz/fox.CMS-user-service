@@ -22,7 +22,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('1/7 hash saved');
+    console.log('1/10 hash saved');
   });
 
 redis
@@ -35,7 +35,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('2/7 hash saved');
+    console.log('2/10 hash saved');
   });
 
 redis
@@ -48,7 +48,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('3/7 hash saved');
+    console.log('3/10 hash saved');
   });
 
 redis
@@ -61,7 +61,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('4/7 hash saved');
+    console.log('4/10 hash saved');
   });
 
 redis
@@ -74,7 +74,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('5/7 hash saved');
+    console.log('5/10 hash saved');
   });
 
 redis
@@ -87,7 +87,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('6/7 hash saved');
+    console.log('6/10 hash saved');
   });
 
 redis
@@ -100,24 +100,24 @@ redis
     ]),
   )
   .then(() => {
-    console.log('7/7 hash saved');
+    console.log('7/10 hash saved');
   });
 
 redis
   .hmset(
-    fakeUsers[7].id,
+    fakeUsers[10].id,
     new Map<string, string>([
       ['role', userRole.USER],
       ['count', '0'],
       ['confirmed', 'false'],
       [
         'confirmtoken',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTcyY2Y1LTFhNTItNDM5ZC04ODcxLTA3YWU1YzE4ZWJiNSIsImlhdCI6MTYxNDM0MTQ1NiwiZXhwIjoxNzAwNzQxNDU2fQ.BMVnCMeFI-PxbyB3zSkIoeM-rf2YXJhkYcRwITZcF7o',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTcyY2Y1LTFhNTItNDM5ZC04ODcxLTA3YWU1YzE4ZWJiNSIsImlhdCI6MTYxNDM0MTQ1NiwiZXhwIjoxNzAwNzQxNDU2fQ.BMVnCMeFI-PxbyB3zSkIoeM-rf2YXJhkYcRwITZcF10o',
       ],
     ]),
   )
   .then(() => {
-    console.log('7/7 hash saved');
+    console.log('8/10 hash saved');
   });
 
 redis
@@ -138,7 +138,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('7/7 hash saved');
+    console.log('9/10 hash saved');
   });
 
 redis
@@ -151,7 +151,7 @@ redis
     ]),
   )
   .then(() => {
-    console.log('7/7 hash saved');
+    console.log('10/10 hash saved');
   });
 
 redis.quit().then(() => {
