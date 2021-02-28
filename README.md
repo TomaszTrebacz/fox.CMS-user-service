@@ -13,8 +13,6 @@ User-service enables the management of own account and other ones, i.e.:
 - confirm user with email,
 - and much more...
 
-In this repository are also placed unit & integration tests.
-
 ## Installation
 
 1. Create .env file following the example (example.env) in the repository.
